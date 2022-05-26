@@ -12,12 +12,21 @@ export default {
     component: CustomButton,
 } as Meta<typeof CustomButton>;
 
-const Template: StoryFn<typeof CustomButton> = (args) => ({
-    components: { CustomButton },
-    setup() {
-        return args
-    },
-    template: '<CustomButton v-bind="args" />'
-});
+const Template: StoryFn<typeof CustomButton> = (args) => {
+    return ({
+        components: {CustomButton},
+        data() {
+            return args
+        },
+        template: `
+          <CustomButton v-bind="args"> Button</CustomButton>`,
+    });
+};
 
 export const Primary = Template.bind({})
+
+export const LargeButton = Template.bind({})
+LargeButton.args = {
+    large: true
+}
+
