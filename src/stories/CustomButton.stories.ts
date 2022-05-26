@@ -32,6 +32,8 @@ const Template: StoryFn<typeof CustomButton> = (args) => ({
         `,
     });
 
+export const Primary = Template.bind({})
+
 export const Large = Template.bind({})
 Large.args = {
     large: true

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ButtonMode } from "@/types";
 import {computed} from "vue";
+import {useRef} from "@/composables/useRef";
 
 interface Props {
   large?: boolean
@@ -15,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const emit = defineEmits<{(e: 'click', event: PointerEvent): void}>()
 
-const animate = ref(false)
+const [animate, setAnimate] = useRef(false)
 const dotPosition = reactive({
   left: '50%',
   top: '50%'
@@ -35,12 +36,15 @@ const modeClass = computed(() => {
 })
 const animateClass = computed(() => animate.value ? 'custom-button__dot--animate' : '')
 
-const handleClick = (e: PointerEvent) => {
+const handleClick = (e: PointerEvent): void => {
+  changeDotPosition(e)
+  setAnimate(true)
+  emit('click', e)
+}
+
+const changeDotPosition = (e: PointerEvent): void => {
   dotPosition.left  = `${e.offsetX}px`;
   dotPosition.top = `${e.offsetY}px`;
-  animate.value = true;
-
-  emit('click', e)
 }
 
 </script>
@@ -49,7 +53,7 @@ const handleClick = (e: PointerEvent) => {
   <button @click="handleClick"
           :disabled="disabled"
           :class="['custom-button', sizeClass, modeClass]">
-    <span @animationend="animate = false"
+    <span @animationend="setAnimate(false)"
           :class="['custom-button__dot', animateClass]"
           :style="dotPosition"/>
     <slot>
