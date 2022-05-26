@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ButtonMode } from "@/types";
+import {ButtonMode} from "@/types";
 
 interface Props {
   large?: boolean
@@ -7,7 +7,11 @@ interface Props {
   mode?: ButtonMode
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  large: false,
+  disabled: false,
+  mode: ButtonMode.yellow
+})
 
 const sizeClass = computed(() => props.large ? 'custom-button--large' : '');
 const modeClass = computed(() => {
@@ -23,11 +27,10 @@ const modeClass = computed(() => {
 })
 
 
-
 </script>
 
 <template>
-  <button :class="['custom-button', sizeClass, modeClass]">
+  <button :disabled="disabled" :class="['custom-button', sizeClass, modeClass]">
     <slot>
       Button
     </slot>
@@ -58,6 +61,10 @@ const modeClass = computed(() => {
     font-size: $fs-500;
   }
 
+  &:disabled {
+    background: grey;
+    cursor: not-allowed;
+  }
 
 }
 

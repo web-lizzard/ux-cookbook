@@ -29,9 +29,11 @@ module.exports = {
           'vue',
           'vue-router',
         ],
-        dts: '.storybook/auto-imports.d.ts',
+        dts: '../auto-imports.d.ts',
       }))
-      config.plugins.push(Components())
+      config.plugins.push(Components({
+        dts: '../components.d.ts'
+      }))
       config.resolve.alias = {
         ...config.resolve.alias,
         '@': `${path.resolve(__dirname, '..')}/src`
