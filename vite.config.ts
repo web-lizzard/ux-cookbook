@@ -3,11 +3,12 @@ import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), AutoImport({
-    dts: './auto-imports.d.ts',
+    dts: true,
     include: [
       /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
       /\.vue$/, /\.vue\?vue/, // .vue
@@ -17,7 +18,8 @@ export default defineConfig({
       'vue',
       'vue-router',
     ]
-  })
+  }),
+      Components()
       ],
   resolve: {
     alias: {

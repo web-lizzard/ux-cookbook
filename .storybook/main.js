@@ -1,5 +1,7 @@
 const AutoImport = require("unplugin-auto-import/vite");
 const Components = require("unplugin-vue-components/vite");
+const path  = require('path')
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -27,6 +29,10 @@ module.exports = {
         dts: '.storybook/auto-imports.d.ts',
       }))
       config.plugins.push(Components())
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@': `${path.resolve(__dirname, '..')}/src`
+      }
 
       return config
   },
