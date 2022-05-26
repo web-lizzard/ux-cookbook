@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+
+$breakpoint-sm: 360px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+
+$border-radius-small: 4px;
+$border-radius-base: 8px;
+$border-radius-large: 16px;
+
+$green-900: #001e1d;
+$green-800: #0f3433;
+$green-700: #004643;
+$green-400: #abd1c6;
+$green-100: #e8e4e6;
+$yellow: #f9bc60;
+$red: #e16162;
+$white: #fffffe;
+
+$fs-sans-serif: 'Oswald', sans-serif;
+
+$space1: 1px;
+$space2: 2px;
+$space3: 3px;
+$space5: 5px;
+$space8: 8px;
+$space13: 13px;
+$space21: 21px;
+$space34: 34px;
+$space55: 55px;
+$space89: 89px;
+$space144: 144px;
+$space233: 233px;
+
+$fs-700: clamp(2.3rem, 5vw, 2.8rem);
+$fs-600: clamp(1.7rem, 5vw, 2.2rem);
+$fs-500: clamp(1.2rem, 5vw, 1.6rem);
+$fs-400: clamp(1rem, 5vw, 1.3rem);
+$fs-300: clamp(0.800rem, 5vw, 1rem)

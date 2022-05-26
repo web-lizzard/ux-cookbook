@@ -1,0 +1,54 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+//remove animations for people who've turned them off
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+body {
+  line-height: 1.5;
+  font-family: $fs-sans-serif;
+  font-size: $fs-400;
+  color: $green-100;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: whitesmoke;
+}
+
+ul {
+  list-style: none;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select,
+a {
+  font: inherit;
+}

@@ -33,6 +33,15 @@ module.exports = {
         ...config.resolve.alias,
         '@': `${path.resolve(__dirname, '..')}/src`
       }
+      config.css ={
+        preprocessorOptions: {
+          scss: {
+            additionalData: `
+              @import '../src/assets/scss/variables.scss';     
+              `
+          }
+        }
+        }
 
       return config
   },
