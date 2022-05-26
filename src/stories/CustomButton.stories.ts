@@ -43,6 +43,18 @@ export const Green = Template.bind({})
 Green.args = {
     mode: ButtonMode.green
 }
+Green.parameters = {
+    backgrounds: {
+        values: [
+            {name: 'light-green', value: '#abd1c6'}
+        ]
+    }
+}
+
+export const Outlined = Template.bind({})
+Outlined.args = {
+    mode: ButtonMode.outlined
+}
 
 export const Disabled = Template.bind({})
 Disabled.args = {

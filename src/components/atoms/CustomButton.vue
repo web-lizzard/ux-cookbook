@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import { ButtonMode } from "@/types";
-import {computed} from "vue";
-import {useRef} from "@/composables/useRef";
+import { useRef } from "@/composables/useRef";
 
-interface Props {
+type Props = {
   large?: boolean
   disabled?: boolean
   mode?: ButtonMode
@@ -25,8 +24,8 @@ const dotPosition = reactive({
 const sizeClass = computed(() => props.large ? 'custom-button--large' : '');
 const modeClass = computed(() => {
   switch (props.mode) {
-    case ButtonMode.ghost:
-      return 'custom-button--ghost';
+    case ButtonMode.outlined:
+      return 'custom-button--outlined';
     case ButtonMode.green:
       return 'custom-button--green'
     case ButtonMode.yellow:
@@ -57,7 +56,7 @@ const changeDotPosition = (e: PointerEvent): void => {
           :class="['custom-button__dot', animateClass]"
           :style="dotPosition"/>
     <slot>
-      Button
+      Click me
     </slot>
   </button>
 
@@ -65,8 +64,6 @@ const changeDotPosition = (e: PointerEvent): void => {
 
 <style lang="scss" scoped>
 .custom-button {
-  display: flex;
-  align-items: center;
   background: $yellow;
   color: $green-800;
   padding: $space5 $space55;
@@ -81,6 +78,11 @@ const changeDotPosition = (e: PointerEvent): void => {
   &--green {
     background: $green-800;
     color: $yellow;
+  }
+
+  &--outlined {
+    background: $green-400;
+    border: 2px solid $green-700;
   }
 
   &--large {
