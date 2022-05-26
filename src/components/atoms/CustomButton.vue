@@ -2,7 +2,7 @@
 import { ButtonMode } from "@/types";
 import { useRef } from "@/composables/useRef";
 
-type Props = {
+interface Props {
   large?: boolean
   disabled?: boolean
   mode?: ButtonMode
