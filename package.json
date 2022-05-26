@@ -8,8 +8,10 @@
     "test:unit": "vitest --environment jsdom",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "type-check": "vue-tsc --noEmit --skipLibCheck",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepare": "husky install"
   },
   "dependencies": {
     "pinia": "^2.0.13",
@@ -44,6 +46,7 @@
     "vite": "^2.9.5",
     "vitest": "^0.9.3",
     "vue-loader": "^16.8.3",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.34.7",
+    "husky": "^8.0.0"
   }
 }
