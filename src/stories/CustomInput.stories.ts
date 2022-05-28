@@ -1,7 +1,7 @@
 
 import CustomInput from '@/components/atoms/CustomInput.vue';
 import type { Meta, StoryFn } from '@storybook/vue3';
-import {InputMode} from "@/types";
+import {FieldType, InputMode} from "@/types";
 
 export default {
     /* 👇 The title prop is optional.
@@ -10,6 +10,19 @@ export default {
      */
     title: 'Atoms/CustomInput',
     component: CustomInput,
+    argTypes: {
+        mode: {
+            description: 'Select to change input color',
+            options: InputMode,
+            control: { type: 'select' }
+        },
+        tag: {
+            description: 'to change between text area od input',
+            options: FieldType,
+            control: {type: 'radio'}
+        }
+    }
+
 } as Meta<typeof CustomInput>;
 
 

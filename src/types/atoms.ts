@@ -9,3 +9,8 @@ export enum InputMode {
     error =  'error',
     yellow = 'yellow'
 }
+
+export enum FieldType {
+    textarea = 'textarea',
+    input = 'input'
+}

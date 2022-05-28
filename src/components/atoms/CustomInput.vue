@@ -1,23 +1,41 @@
+
+<script lang="ts">
+export default {
+  inheritAttrs: false
+}
+</script>
+
+
 <script lang="ts" setup>
 
-import { InputMode } from "@/types";
+import {FieldType, InputMode} from "@/types";
+
 
 interface Props {
   id: string
-  value: string
+  value?: string
   label?: string
   mode? : InputMode
   errorMessage?: string
+  tag?: FieldType
 }
 
 const props = withDefaults(defineProps<Props>(), {
   label: 'Long label to see how it works',
   id: 'unique',
-  mode: InputMode.yellow
+  mode: InputMode.yellow,
+  tag: FieldType.input
 })
 
+defineEmits<{(e: 'update:modelValue', value: string): void}>()
 
 const timeline = gsap.timeline({ paused: true})
+
+
+const labelContent = computed(() => props.errorMessage || props.label)
+const tagModifier = computed(() => props.tag === FieldType.textarea
+    ? 'custom-input__input--long-field'
+    : '')
 
 const modeClass = computed(() => {
   switch (props.mode) {
@@ -30,6 +48,7 @@ const modeClass = computed(() => {
           return ''
   }
 })
+
 
 const handleBlur = () => {
   timeline.duration(0.3).reverse()
@@ -49,17 +68,22 @@ onMounted(() => {
 
 </script>
 
+
 <template>
   <div :class="['custom-input', modeClass]">
-    <input @input="$emit('update:modelValue', $event.target.value)"
-           class="custom-input__input"
-           @focus="handleFocus"
-           @blur="handleBlur"
-           :id="id"
-           type="text">
+    <component :is="tag"
+               @input="$emit('update:modelValue', $event.target.value)"
+               :class="['custom-input__input', tagModifier]"
+               @focus="handleFocus"
+               @blur="handleBlur"
+               :id="id"
+               v-bind="$attrs"
+               type="text"/>
     <label class="custom-input__label"
            :for="id">
-      <span class="custom-input__label-text">{{ label }}</span>
+      <span class="custom-input__label-text">
+        {{ labelContent }}
+      </span>
       <span class="custom-input__border-bottom"></span>
       <span class="custom-input__border-right"></span>
       <span class="custom-input__border-top"></span>
@@ -74,6 +98,7 @@ onMounted(() => {
   position: relative;
   color: $yellow;
   max-width: 320px;
+  cursor: pointer;
 
   &--green {
     color: $green-800
@@ -92,8 +117,13 @@ onMounted(() => {
     font-size: $fs-300;
     padding: $space21 $space8;
 
+
     &:focus {
       outline: none;
+    }
+
+    &--long-field {
+      resize: none;
     }
   }
 
