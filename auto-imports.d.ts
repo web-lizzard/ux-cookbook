@@ -10,6 +10,7 @@ declare global {
   const effectScope: typeof import('vue')['effectScope']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const gsap: typeof import('gsap')['gsap']
   const h: typeof import('vue')['h']
   const inject: typeof import('vue')['inject']
   const isReadonly: typeof import('vue')['isReadonly']

@@ -17,6 +17,11 @@ export default defineConfig({
     imports: [
       'vue',
       'vue-router',
+      {
+        'gsap': [
+            'gsap'
+        ]
+      }
     ]
   }),
       Components()
