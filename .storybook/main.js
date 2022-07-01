@@ -28,6 +28,11 @@ module.exports = {
         imports: [
           'vue',
           'vue-router',
+          {
+            'gsap': [
+              'gsap'
+            ]
+          }
         ],
         dts: '../auto-imports.d.ts',
       }))
