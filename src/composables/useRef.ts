@@ -1,5 +1,5 @@
-import type { Ref } from "vue";
-import type { UseRef } from "@/types";
+import type { Ref } from 'vue';
+import type { UseRef } from '@/types';
 
 export const useRef = <T> (value: T): UseRef<T> => {
     const reactiveValue = ref(value) as Ref<T>
