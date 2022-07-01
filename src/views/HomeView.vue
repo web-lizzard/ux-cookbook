@@ -4,7 +4,7 @@
 
 <template>
   <main>
-      <CustomButton />
+    <CustomButton />
   </main>
 </template>
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ButtonMode } from "@/types";
-import { useRef } from "@/composables/useRef";
+import { ButtonMode } from '@/types';
+import { useRef } from '@/composables/useRef';
 
 interface Props {
   large?: boolean
@@ -42,7 +42,7 @@ const handleClick = (e: PointerEvent): void => {
 }
 
 const changeDotPosition = (e: PointerEvent): void => {
-  dotPosition.left  = `${e.offsetX}px`;
+  dotPosition.left = `${e.offsetX}px`;
   dotPosition.top = `${e.offsetY}px`;
 }
 

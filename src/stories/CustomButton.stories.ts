@@ -2,7 +2,7 @@
 import CustomButton from '@/components/atoms/CustomButton.vue';
 
 import type { Meta, StoryFn } from '@storybook/vue3';
-import {ButtonMode} from "@/types";
+import { ButtonMode } from '@/types';
 
 export default {
     /* 👇 The title prop is optional.
@@ -46,7 +46,7 @@ Green.args = {
 Green.parameters = {
     backgrounds: {
         values: [
-            {name: 'light-green', value: '#abd1c6'}
+            { name: 'light-green', value: '#abd1c6' }
         ]
     }
 }
